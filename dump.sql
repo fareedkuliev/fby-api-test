@@ -1,0 +1,7 @@
+
+Warning: PHP Startup: Unable to load dynamic library 'mongodb.so' (tried: /usr/local/lib/php/pecl/20220829/mongodb.so (dlopen(/usr/local/lib/php/pecl/20220829/mongodb.so, 0x0009): tried: '/usr/local/lib/php/pecl/20220829/mongodb.so' (no such file)), /usr/local/lib/php/pecl/20220829/mongodb.so.so (dlopen(/usr/local/lib/php/pecl/20220829/mongodb.so.so, 0x0009): tried: '/usr/local/lib/php/pecl/20220829/mongodb.so.so' (no such file))) in Unknown on line 0
+CREATE TABLE project_milestones (id INT AUTO_INCREMENT NOT NULL, project_id INT DEFAULT NULL, title VARCHAR(55) NOT NULL, description VARCHAR(255) NOT NULL, milestone_deadline DATETIME NOT NULL, INDEX IDX_51FAB6166D1F9C (project_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, enabled TINYINT(1) NOT NULL, status VARCHAR(55) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+CREATE TABLE project (id INT AUTO_INCREMENT NOT NULL, user_id INT DEFAULT NULL, title VARCHAR(55) NOT NULL, description VARCHAR(255) NOT NULL, INDEX IDX_2FB3D0EEA76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+ALTER TABLE project_milestones ADD CONSTRAINT FK_51FAB6166D1F9C FOREIGN KEY (project_id) REFERENCES project (id);
+ALTER TABLE project ADD CONSTRAINT FK_2FB3D0EEA76ED395 FOREIGN KEY (user_id) REFERENCES user (id);
