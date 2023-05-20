@@ -100,7 +100,7 @@ class ProjectMilestonesFixtures extends Fixture
 
         $manager->persist($projectMilestone10);
 
-        $manager->flush();
+//         $manager->flush();
 
     }
 
