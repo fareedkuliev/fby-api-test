@@ -7,4 +7,10 @@ Instruction:
 - create a DB using command 'php bin/console doctrine:database:create'
 - use command 'symfony console doctrine:migrations:migrate' to create tables(entities) in your DB.
 - open the DB
-- open src/DataFixtures and 
+- open src/DataFixtures and UserFixtures.php. In the bottom uncomment $manager->flush(); . After that use command 'php bin/console doctrine:fixtures:load' in your terminal. This allow to add fixtures in the User table. If it success - comment back $manager->flush(); in the UserFixtures.php
+- open src/DataFixtures and ProjectFixtures.php. In the bottom uncomment $manager->flush(); . After that use command 'php bin/console doctrine:fixtures:load --append' in your terminal. This allow to add fixtures in the Project table. If it success - comment back $manager->flush(); in the ProjectFixtures.php
+- open src/DataFixtures and ProjectMilestonesFixtures.php. In the bottom uncomment $manager->flush(); . After that use command 'php bin/console doctrine:fixtures:load --append' in your terminal. This allow to add fixtures in the ProjectMilestones table. If it success - comment back $manager->flush(); in the ProjectMilestonesFixtures.php
+- now you have fixtures in the DB
+3. Run command 'symfony server:start' and check the localhost and the port. You'll need both of them in the second front repository.
+4. Open second repository and change the localhost variable on the main.js and user.js if it needs. Check localhost and port. They should be the same like in symfony.
+5. Open the index.html and run browser. So you can test the functonality both part of the project.
